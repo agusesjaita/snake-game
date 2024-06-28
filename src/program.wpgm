@@ -1,0 +1,11 @@
+import wollok.game.*
+import jugador.*
+import ajustesJuego.*
+import manzana.*
+
+
+program snakes {
+	
+	snake.iniciar()
+	  
+}
