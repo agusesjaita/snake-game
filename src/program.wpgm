@@ -2,6 +2,7 @@ import wollok.game.*
 import jugador.*
 import ajustesJuego.*
 import manzana.*
+import puntuacion.*
 
 
 program snakes {

@@ -43,11 +43,10 @@ class Manzana{
 		game.addVisual(self)
 	}
 	
-	method colisionar(v){
+	method colisionar(){
 	     lasPartesDeSnake.add(new ParteDeSnake(
 	     	nroDeParte = lasPartesDeSnake.last().nroDeParte() + 1,
-	     	position = lasPartesDeSnake.last().position(),
-	     	jugadorV = v))
+	     	position = lasPartesDeSnake.last().position()))
 	     	 
 	     game.addVisual(lasPartesDeSnake.last())
 	     game.removeVisual(self)
