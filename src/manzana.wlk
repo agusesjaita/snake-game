@@ -1,27 +1,20 @@
 import wollok.game.*
 import jugador.*
 import ajustesJuego.*
+import sprites.*
+import instancias.*
 
-const dondeAparecer = []
 
-class ItemEnNivel{
-	var position = game.origin()
-	method reubicar(){
-		dondeAparecer.add(position)
-		position = dondeAparecer.anyOne()
-		dondeAparecer.remove(position)
-	}
-}
-
-class Manzana{
-	var property position = self.posicionAlAzarVacia()
-	var property image = "manzana.png"
-
-	method posicionAlAzarVacia() {
-	 const posicion = self.posicionRandom()
+object manzana {
+	const property image = "assets/manzana.png"
+	var property position = game.at(0, 0)
+	const dondeAparecer = []	
 	
-		return if (self.estaOcupadaLaPosicion(posicion)) {self.posicionAlAzarVacia()} 
-				else {posicion}
+	method posicionAlAzarVacia() {
+		position = self.posicionRandom()
+	
+		return if (self.estaOcupadaLaPosicion(position)) {self.posicionAlAzarVacia()} 
+				else {position}
 	}
 
 	method posicionRandom() {
@@ -31,24 +24,25 @@ class Manzana{
     	return game.at(x, y)
 	}
 
-
 	method estaOcupadaLaPosicion(pos) {
-    	return lasPartesDeSnake.any({parte => parte.position() == pos})
+    	return cabezaDeSnake.cuerpo().any({parte => parte.position() == pos})
 	}
 	
-	method reubicar(){
+	method reubicar() {
 		dondeAparecer.add(position)
 		position = self.posicionAlAzarVacia()
 		dondeAparecer.remove(position)
 		game.addVisual(self)
 	}
 	
-	method colisionar(){
-	     lasPartesDeSnake.add(new ParteDeSnake(
-	     	nroDeParte = lasPartesDeSnake.last().nroDeParte() + 1,
-	     	position = lasPartesDeSnake.last().position()))
+	method colisionar() {
+		puntaje.puntos(puntaje.puntos() + 1)
+		
+	     cabezaDeSnake.cuerpo().add(new ParteDeSnake(
+	     	nroDeParte = cabezaDeSnake.cuerpo().last().nroDeParte() + 1,
+	     	position = cabezaDeSnake.cuerpo().last().position()))
 	     	 
-	     game.addVisual(lasPartesDeSnake.last())
+	     game.addVisual(cabezaDeSnake.cuerpo().last())
 	     game.removeVisual(self)
 	     self.reubicar()	     
 	}

@@ -1,12 +1,10 @@
 import wollok.game.*
-import jugador.*
 import ajustesJuego.*
+import instancias.*
+import jugador.*
 import manzana.*
-import puntuacion.*
-
+import sprites.*
 
 program snakes {
-	
 	snake.iniciar()
-	  
 }
