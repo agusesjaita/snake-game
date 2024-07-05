@@ -33,6 +33,8 @@ object cabezaDeSnake {
 	
 	method cuerpo() = lasPartesDeSnake
 	
+	method reiniciar() = lasPartesDeSnake.clear()
+	
 	method colisionar() {pantallaDeMuerte.iniciar()}
 }
 

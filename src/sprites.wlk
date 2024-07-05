@@ -35,12 +35,12 @@ object izquierdaDerecha {
 
 // pantallas
 object fondoFinDelJuego {
-	const property image = "assets/fondoGameOver.jpeg"
+	const property image = "assets/fondoGameOver.jpg"
 	const property position = game.at(0, 0)
 }
 
 object fondoNivel {
-	const property image = "assets/fondoNivel.jpeg"
+	const property image = "assets/fondoNivel.jpg"
 	const property position = game.at(-1, -1)
 }
 

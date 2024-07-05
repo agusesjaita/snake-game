@@ -23,7 +23,7 @@ object pantallaDeMuerte {
     	puntaje.agregarPuntuacion()
     	puntaje.queMostrar(puntaje.mejorPuntuacion())
 		game.addVisual(fondoFinDelJuego)
-		puntaje.position(game.at(10, 6))
+		puntaje.position(game.at(10, 8))
 		game.addVisual(puntaje)
 		
 		keyboard.space().onPressDo({self.reiniciarNivel()})
@@ -39,7 +39,7 @@ object pantallaDeMuerte {
 		puntaje.position(game.at(15, 20))
 		puntaje.queMostrar(puntaje.puntos())
 		puntaje.puntos(0)
-		cabezaDeSnake.cuerpo().clear()
+		cabezaDeSnake.reiniciar()
 		game.removeVisual(fondoNivel)                           
 		pantallaDeInicio.iniciar()
 	}
@@ -49,13 +49,15 @@ object puntaje {
 	var property position = game.at(13, 18)
 	var property color = "F4FF00"
 	var property puntos = 0
-	var property queMostrar = 0
+	var property queMostrar = puntos
 	const puntuaciones = []
 	
 	
-	method text() = queMostrar
+	method text() = queMostrar.toString()
 	
 	method textColor() = color
+	
+	method sumarPuntos() {puntos = puntos + 1}
 	
 	method agregarPuntuacion() = puntuaciones.add(puntos)
 		

@@ -18,7 +18,6 @@ object snake {
     	method juegoIniciar() {
 			const parte1 = new ParteDeSnake(position = game.at(3,5), nroDeParte = 1, siguienteaDondeIr = "right")
 			const parte2 = new ParteDeSnake(position = game.at(2,5), nroDeParte = 2, siguienteaDondeIr = "right")
-			puntaje.queMostrar(puntaje.puntos())
 			
 			game.addVisual(fondoNivel)
 			game.addVisual(puntaje)

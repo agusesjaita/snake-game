@@ -35,13 +35,14 @@ object manzana {
 		game.addVisual(self)
 	}
 	
-	method colisionar() {
-		puntaje.puntos(puntaje.puntos() + 1)
-		
+	method colisionar() {		
 	     cabezaDeSnake.cuerpo().add(new ParteDeSnake(
 	     	nroDeParte = cabezaDeSnake.cuerpo().last().nroDeParte() + 1,
 	     	position = cabezaDeSnake.cuerpo().last().position()))
-	     	 
+	     	
+	     puntaje.sumarPuntos()
+	     puntaje.queMostrar(puntaje.puntos())
+	     	
 	     game.addVisual(cabezaDeSnake.cuerpo().last())
 	     game.removeVisual(self)
 	     self.reubicar()	     
